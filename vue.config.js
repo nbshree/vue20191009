@@ -2,7 +2,7 @@
 const path = require('path')
 
 function resolve (dir) {
-  return path.join(__dirname, dir)
+  return path.resolve(__dirname, dir)
 }
 
 module.exports = {
@@ -47,7 +47,7 @@ module.exports = {
     port: 8863,
     https: false,
     hotOnly: false,
-    proxy: null
+    // proxy: null,
     // //eslint关闭
     // overlay: {
     //   warnings: true,
@@ -55,5 +55,10 @@ module.exports = {
     // },
     // lintOnSave: false
     // //eslint关闭
+    overlay: {
+      warnings: false,
+      errors: false
+    },
+    lintOnSave: false
   }
 }
