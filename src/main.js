@@ -10,17 +10,18 @@ import '@/assets/styl/index'
 // import { mockXHR } from '../mock'
 
 import * as filters from './filters' // global filters
-console.log(router)
+import i18n from '@/lang'
+
 if (process.env.NODE_ENV === 'production') {
   // mockXHR()
 }
 Vue.use(Element, {
-  size: 'medium'
-  // i18n: (key, value) => i18n.t(key, value)
+  size: 'medium',
+  i18n: (key, value) => i18n.t(key, value)
 })
 
 // 全局添加格式化规则
-Object.keys(filters).forEach(key => {
+Object.keys(filters).forEach((key) => {
   Vue.filter(key, filters[key])
 })
 
@@ -29,5 +30,6 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
-  render: h => h(App)
+  i18n,
+  render: (h) => h(App)
 }).$mount('#app')

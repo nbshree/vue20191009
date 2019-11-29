@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 export const constantRoutes = [
   {
+    path: '',
+    component: () => import('@/views/Exhibition1129'),
+    hidden: true
+  },
+  {
     path: '/404',
     component: () => import('@/views/errorPage/404'),
     hidden: true
@@ -18,7 +23,13 @@ export const constantRoutes = [
     path: '/403',
     component: () => import('@/views/errorPage/403'),
     hidden: true
-  }
+  },
+  {
+    path: '/lock',
+    component: () => import('@/views/lock/index'),
+    name: 'lock',
+    hidden: true
+  },
 ]
 
 const createRouter = () => new VueRouter({
