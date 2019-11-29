@@ -3,12 +3,12 @@ import Element from 'element-ui'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { mockXHR } from '../mock'
+// import { mockXHR } from '../mock'
 
 import * as filters from './filters' // global filters
 
 if (process.env.NODE_ENV === 'production') {
-  mockXHR()
+  // mockXHR()
 }
 Vue.use(Element, {
   size: 'medium'
