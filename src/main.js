@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Element from 'element-ui'
 import App from './App.vue'
-import router from './router'
+import router from '@/router'
 import store from './store'
+import '@/assets/theme/element-#41B883/index.css'
+import '@/assets/styl/index'
 // import { mockXHR } from '../mock'
 
 import * as filters from './filters' // global filters
-
+console.log(router)
 if (process.env.NODE_ENV === 'production') {
   // mockXHR()
 }
