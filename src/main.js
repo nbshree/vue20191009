@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import 'normalize.css/normalize.css' // a modern alternative to CSS resets
+
 import Element from 'element-ui'
 import App from './App.vue'
 import router from '@/router'
