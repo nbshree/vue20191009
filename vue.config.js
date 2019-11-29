@@ -47,18 +47,6 @@ module.exports = {
     port: 8863,
     https: false,
     hotOnly: false,
-    // proxy: null,
-    // //eslint关闭
-    // overlay: {
-    //   warnings: true,
-    //   errors: true
-    // },
-    // lintOnSave: false
-    // //eslint关闭
-    overlay: {
-      warnings: false,
-      errors: false
-    },
-    lintOnSave: false
+    proxy: null
   }
 }
