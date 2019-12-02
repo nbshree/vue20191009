@@ -4,11 +4,11 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 export const constantRoutes = [
-  {
-    path: '',
-    component: () => import('@/views/Exhibition1129'),
-    hidden: true
-  },
+  // {
+  //   path: '',
+  //   component: () => import('@/views/Exhibition1129'),
+  //   hidden: true
+  // },
   {
     path: '/404',
     component: () => import('@/views/errorPage/404'),
@@ -30,11 +30,24 @@ export const constantRoutes = [
     name: 'lock',
     hidden: true
   },
+  {
+    path:'',
+    name:'layout',
+    component:()=>import('@/views/layout/index'),
+    children:[
+      {
+        path: '/lock',
+        component: () => import('@/views/lock/index'),
+        name: 'lock',
+        hidden: true
+      },
+    ]
+  }
 ]
 
 const createRouter = () => new VueRouter({
-  mode: 'history', // require service support
-  scrollBehavior: () => ({ y: 0 }),
+  // mode: 'history', // require service support
+  // scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })
 

@@ -1,102 +1,65 @@
 <template>
-  <div :class="classObj" class="app-wrapper">
-    <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
-    <sidebar class="sidebar-container" />
-    <div :class="{hasTagsView:needTagsView}" class="main-container">
-      <div :class="{'fixed-header':fixedHeader}">
-        <navbar />
-        <tags-view v-if="needTagsView" />
-      </div>
-      <app-main />
-      <right-panel v-if="showSettings">
-        <settings />
-      </right-panel>
-    </div>
-  </div>
+    <el-container>
+        <!--头部栏-->
+        <el-header>
+            <nav-bar />
+        </el-header>
+        <el-container>
+            <!--侧边导航-->
+            <el-aside :width="asideWidth">
+                <side-bar class="sidebar-container" />
+            </el-aside>
+            <!--主页面-->
+            <el-main>
+                <tags-view />
+                <app-main />
+            </el-main>
+        </el-container>
+    </el-container>
 </template>
 
 <script>
-import RightPanel from '@/components/RightPanel'
-import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
-import ResizeMixin from './mixin/ResizeHandler'
-import { mapState } from 'vuex'
+import { appMain, navbar, sidebar, tagsView } from './components';
 
 export default {
-  name: 'Layout',
-  components: {
-    AppMain,
-    Navbar,
-    RightPanel,
-    Settings,
-    Sidebar,
-    TagsView
-  },
-  mixins: [ResizeMixin],
-  computed: {
-    ...mapState({
-      sidebar: state => state.app.sidebar,
-      device: state => state.app.device,
-      showSettings: state => state.settings.showSettings,
-      needTagsView: state => state.settings.tagsView,
-      fixedHeader: state => state.settings.fixedHeader
-    }),
-    classObj () {
-      return {
-        hideSidebar: !this.sidebar.opened,
-        openSidebar: this.sidebar.opened,
-        withoutAnimation: this.sidebar.withoutAnimation,
-        mobile: this.device === 'mobile'
-      }
+    name: 'Layout',
+    components: {
+        'app-main': appMain,
+        'nav-bar': navbar,
+        'side-bar': sidebar,
+        'tags-view': tagsView
+    },
+    computed: {
+        asideWidth() {
+            return this.$store.getters.getSliderStateWidth;
+        }
     }
-  },
-  methods: {
-    handleClickOutside () {
-      this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
-    }
-  }
-}
+};
 </script>
 
-<style lang="scss" scoped>
-  @import "~@/styles/mixin.scss";
-  @import "~@/styles/variables.scss";
+<style lang="stylus" scoped>
+@import "../../assets/styl/variables.styl"
 
-  .app-wrapper {
-    @include clearfix;
-    position: relative;
-    height: 100%;
-    width: 100%;
+.el-container
+    width: 100%
+    height: 100%
 
-    &.mobile.openSidebar {
-      position: fixed;
-      top: 0;
-    }
-  }
+.el-header
+    padding: 0
+    font-size: 0
+    line-height: 60px
+    background: white
+    box-sizing: border-box
+    overflow: hidden
 
-  .drawer-bg {
-    background: #000;
-    opacity: 0.3;
-    width: 100%;
-    top: 0;
-    height: 100%;
-    position: absolute;
-    z-index: 999;
-  }
+.el-aside
+    transition: width .3s
+    background: el-aside-bg
+    color: el-aside-color
+    overflow: hidden
 
-  .fixed-header {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 9;
-    width: calc(100% - #{$sideBarWidth});
-    transition: width 0.28s;
-  }
-
-  .hideSidebar .fixed-header {
-    width: calc(100% - 54px)
-  }
-
-  .mobile .fixed-header {
-    width: 100%;
-  }
+.el-main
+    padding: 0
+    height: 100%
+    overflow: auto
 </style>
