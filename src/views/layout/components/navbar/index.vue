@@ -3,7 +3,7 @@
         <div class="left-area">
             <i class="iconfont-antdesign icon-rocket app-icon"></i>
             <span class="el-header__title">
-                WOT&nbsp;<span class="subtitle">服务中心</span>
+                Shree&nbsp;<span class="subtitle">vue-admin</span>
                 <span class="version-wrap">
                     {{ system_version }}
                 </span>
@@ -56,7 +56,8 @@ export default {
     },
     data() {
         return {
-            system_version: this.$store.state.app.version
+            // system_version: this.$store.state.app.version
+            system_version: this.$store.getters.systemVersion
         };
     },
     computed: {
