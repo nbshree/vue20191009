@@ -1,19 +1,19 @@
 <template>
   <div class="login-page">
-<!--    <langselect class="lang" />-->
-<!--    <el-tooltip class="svg-github" effect="dark" content="Fork Me" placement="bottom">-->
-<!--      <a href="https://github.com/Sakuyakun/vue-eden"><icon name="github" :scale="2.5"></icon></a>-->
-<!--    </el-tooltip>-->
+    <langselect class="lang" />
+    <el-tooltip class="svg-github" effect="dark" content="Fork Me" placement="bottom">
+      <a href="https://github.com/nbshree/vue20191009" target="_blank"><icon name="github" :scale="2.5"></icon></a>
+    </el-tooltip>
 
     <div class="login-wrap">
       <el-col :class="translateLeft" :span="10">
 
         <div v-show="notforget">
           <div class="logo">
-            <icon name="tree" :scale="8"></icon>
+            <icon name="loginLogo" :scale="8" class="loginLogo"></icon>
             <div class="title">
               <a>
-                <span>{{$t('login.edenPart1')}}</span><span class="subtitle">{{$t('login.edenPart2')}}</span>
+                <span>{{$t('login.titlePart1')}}</span><span class="subtitle">{{$t('login.titlePart2')}}</span>
               </a>
             </div>
           </div>
@@ -45,7 +45,7 @@
         <div v-show="!notforget">
           <div class="title forgetwrap-title">
             <a>
-              <span>VUE</span><span class="subtitle">EDEN</span>
+              <span>VUE-SHREE</span><span class="subtitle">ADMIN</span>
             </a>
           </div>
           <div class="forget-form">
@@ -206,6 +206,9 @@ export default {
 </script>
 
 <style lang="stylus">
+  .loginLogo
+    color #6f7180
+
 .forget-form,
 .login-form
   .el-form-item__content
@@ -319,7 +322,7 @@ export default {
   .wallpaper
     width 100%
     height 100%
-    background url('../../assets/images/loginwallpaper.jpg')
+    background url('../../assets/images/Taylor-Swift.jpg')
     background-size cover
     position relative
 </style>

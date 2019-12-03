@@ -1,8 +1,10 @@
-import { router } from '@/router'
+// import { router } from '@/router'
+import router from '@/router'
 import store from '@/store'
 import nprogress from 'nprogress'
 // import 'nprogress/nprogress.css'
-import { getToken } from '@/utils/auth'
+// import { getToken } from '@/utils/auth'
+import { getSession } from '@/utils/session'
 import * as tools from '@/utils/tools'
 
 const hasRouter = (toPath, parentPath, routers) => {
@@ -24,8 +26,13 @@ const hasPermission = (permissionCode, permissionList) => {
 }
 
 const whiteList = ['/403', '/404', '/500', '/login', '/lock'];
-
+console.log(router)
 router.beforeEach(async (to, from, next) => {
+  console.log(to)
+  console.log(from)
+  console.log(store.getters.lockState)
+  console.log(getSession())
+
   nprogress.start()
   if (store.getters.lockState === 'lock' && to.name !== 'lock') {
     next({
@@ -34,7 +41,7 @@ router.beforeEach(async (to, from, next) => {
     })
   } else if (store.getters.lockState === 'unlock' && to.name === 'lock') {
     next(false)
-  } else if (getToken()) {
+  } else if (getSession()) {
     // 如果登录过后访问登录页面则跳回主页
     if (to.path === '/login') {
       next({ path: '/' })

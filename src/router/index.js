@@ -5,7 +5,18 @@ const Layout = _import('layout/index');
 
 Vue.use(VueRouter)
 
-export const constantRoutes = [
+export const constantRouterMap = [
+  {
+    path: '/redirect',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: '/redirect/:path*',
+        component: _import('redirect/index')
+      }
+    ]
+  },
   {
     path: '/about',
     name: 'about',
@@ -13,13 +24,23 @@ export const constantRoutes = [
     component: _import("About")
   },
   {
-    path: '/404',
-    component: _import("errorPage/404"),
+    path: '/403',
+    component: _import('errorPage/403'),
     hidden: true
   },
   {
-    path: '/403',
-    component: _import("errorPage/403"),
+    path: '/404',
+    component: _import('errorPage/404'),
+    hidden: true
+  },
+  {
+    path: '/500',
+    component: _import('errorPage/500'),
+    hidden: true
+  },
+  {
+    path: '/login',
+    component: _import('login/index'),
     hidden: true
   },
   {
@@ -50,7 +71,7 @@ export const constantRoutes = [
 const createRouter = () => new VueRouter({
   // mode: 'history', // require service support
   // scrollBehavior: () => ({ y: 0 }),
-  routes: constantRoutes
+  routes: constantRouterMap
 })
 
 const router = createRouter()

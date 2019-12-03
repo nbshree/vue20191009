@@ -22,8 +22,8 @@ export default {
         unlock: '解锁'
     },
     login: {
-        titlePart1: 'ILD WOT',
-        titlePart2: '服务支持中心',
+        titlePart1: '瑟睿',
+        titlePart2: '平台',
         title: '系统登录',
         btn: '登录',
         radioEN: '英语',
