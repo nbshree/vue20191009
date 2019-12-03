@@ -1,46 +1,48 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import _import from "@/utils/import";
+const Layout = _import('layout/index');
 
 Vue.use(VueRouter)
 
 export const constantRoutes = [
-  // {
-  //   path: '',
-  //   component: () => import('@/views/Exhibition1129'),
-  //   hidden: true
-  // },
-  {
-    path: '/404',
-    component: () => import('@/views/errorPage/404'),
-    hidden: true
-  },
   {
     path: '/about',
     name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '@/views/About')
+    // component: () => import(/* webpackChunkName: "about" */ '@/views/About')
+    component: _import("About")
+  },
+  {
+    path: '/404',
+    component: _import("errorPage/404"),
+    hidden: true
   },
   {
     path: '/403',
-    component: () => import('@/views/errorPage/403'),
+    component: _import("errorPage/403"),
     hidden: true
   },
   {
     path: '/lock',
-    component: () => import('@/views/lock/index'),
+    component: _import("lock/index"),
     name: 'lock',
     hidden: true
   },
   {
     path:'',
-    name:'layout',
-    component:()=>import('@/views/layout/index'),
+    component:Layout,
+    redirect:'dashboard',
     children:[
       {
-        path: '/lock',
-        component: () => import('@/views/lock/index'),
-        name: 'lock',
-        hidden: true
-      },
+        path: 'dashboard',
+        name: 'dashboard',
+        component: _import("dashboard/index"),
+        meta: {
+          title: '控制面板',
+          icon: 'icon-dashboard',
+          permission: 'dashboard'
+        }
+      }
     ]
   }
 ]

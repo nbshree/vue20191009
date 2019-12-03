@@ -57,7 +57,7 @@ export default {
     data() {
         return {
             // system_version: this.$store.state.app.version
-            system_version: this.$store.getters.systemVersion
+            system_version: this.$store.getters.version
         };
     },
     computed: {
