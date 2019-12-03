@@ -79,7 +79,7 @@
       </el-col>
 
       <el-col :class="translateRight" :span="14">
-        <div class="wallpaper"></div>
+        <div class="wallpaper" ></div>
       </el-col>
     </div>
   </div>
@@ -172,7 +172,7 @@ export default {
             this.remember
               ? storage.set('loginUser', username)
               : storage.remove('loginUser', username)
-            const response = await this.$store.dispatch('loginbyUser', {
+            const response = await this.$store.dispatch('login', {
               username: username.trim(),
               password: password
             })
@@ -322,7 +322,7 @@ export default {
   .wallpaper
     width 100%
     height 100%
-    background url('../../assets/images/Taylor-Swift.jpg')
+    background url('../../assets/images/wmx.jpg')
     background-size cover
     position relative
 </style>

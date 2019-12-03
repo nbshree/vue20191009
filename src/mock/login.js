@@ -2,18 +2,20 @@ import queryString from "query-string";
 
 const userMap = {
   admin: {
-    roles: ["admin"],
-    token: "admin",
+    // roles: ["admin"],
+    // token: "admin",
     introduction: "i am admin",
     avatar: "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80",
-    name: "Admin"
+    userName: "Admin",
+    sessionId:"e69b81b5d4c04183b378a75fe42d8b06"
   },
   sakuya: {
-    roles: ["sakuya"],
-    token: "sakuya",
+    // roles: ["sakuya"],
+    // token: "sakuya",
     introduction: "i am sakuya",
     avatar: "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80",
-    name: "Sakuya"
+    userName: "Sakuya",
+    sessionId:"e69b81b5d4c04183b378a75fe42d8b07"
   }
 };
 const  newUserMao = {

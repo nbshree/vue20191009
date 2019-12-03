@@ -29,13 +29,13 @@ export default {
   },
   methods: {
     unlock() {
-      // if (this.pwd === '') {
-      //   this.$message.error('Please Enter Password!')
-      // } else {
-      //   this.$message.success(this.$t('lock.unlock'))
-      //   this.$store.dispatch('setLockState', 'unlock')
-      //   this.$router.push('/')
-      // }
+      if (this.pwd === '') {
+        this.$message.error('Please Enter Password!')
+      } else {
+        this.$message.success(this.$t('lock.unlock'))
+        this.$store.dispatch('setLockState', 'unlock')
+        this.$router.push('/')
+      }
     }
   }
 }

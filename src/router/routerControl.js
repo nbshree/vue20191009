@@ -26,13 +26,7 @@ const hasPermission = (permissionCode, permissionList) => {
 }
 
 const whiteList = ['/403', '/404', '/500', '/login', '/lock'];
-console.log(router)
 router.beforeEach(async (to, from, next) => {
-  console.log(to)
-  console.log(from)
-  console.log(store.getters.lockState)
-  console.log(getSession())
-
   nprogress.start()
   if (store.getters.lockState === 'lock' && to.name !== 'lock') {
     next({

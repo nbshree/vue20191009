@@ -12,13 +12,12 @@
 
         <div class="middle-area">
             <div class="middle-area__cgwrap" @click="handleSwitchNavbar">
-                <!--<icon class="category-icon" name="category" :scale="2.8"></icon>-->
-                <i class="iconfont-antdesign icon-menu category-icon"></i>
+              <icon class="category-icon" name="category" :scale="2.8"></icon>
             </div>
 
             <div class="middle-area__msglist">
                 <breadcrumb />
-                <!--<seamless-list :messageList="messageList" :singleHeight="60" :limitMoveNum="2" />-->
+<!--                <seamless-list :messageList="messageList" :singleHeight="60" :limitMoveNum="2" />-->
             </div>
         </div>
 
@@ -56,8 +55,7 @@ export default {
     },
     data() {
         return {
-            // system_version: this.$store.state.app.version
-            system_version: this.$store.getters.version
+            system_version: this.$store.state.app.version
         };
     },
     computed: {

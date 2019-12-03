@@ -1,6 +1,6 @@
 <template>
     <div class="el-fullscreen" @click="handleScreenFull">
-        <i class="el-fullscreen__icon" :class="[iconClass]"></i>
+      <icon :class="`${iconClass}`" name="fullscreen" :scale="scale"></icon>
     </div>
 </template>
 
@@ -8,50 +8,47 @@
 import screenfull from 'screenfull';
 
 export default {
-    name: 'fullscreen',
-    props: {
-        enabled: {
-            type: Boolean,
-            default: true
-        }
+  name: "fullscreen",
+  props: {
+    scale: {
+      type: Number,
+      default: 2.5
     },
-    data() {
-        return {
-            iconClass: 'iconfont-antdesign icon-fullscreen',
-            status: false
-        };
+    iconClass: {
+      type: String
     },
-    methods: {
-        handleScreenFull() {
-            if (!this.enabled) return null;
-            if (screenfull.enabled) {
-                screenfull.on('change', () => {
-                    if (screenfull.isFullscreen) {
-                        this.iconClass = 'iconfont-antdesign icon-fullscreen-exit';
-                    } else {
-                        this.iconClass = 'iconfont-antdesign icon-fullscreen';
-                    }
-                });
-            } else {
-                this.$message({
-                    message: 'fullscreen can not work',
-                    type: 'warning'
-                });
-                return false;
-            }
-
-            screenfull.toggle();
-        }
+    enabled: {
+      type: Boolean,
+      default: true
     }
+  },
+  data() {
+    return {
+      status: false
+    };
+  },
+  methods: {
+    handleScreenFull() {
+      if (!this.enabled) return null;
+      if (!screenfull.enabled) {
+        this.$message({
+          message: "fullscreen can not work",
+          type: "warning"
+        });
+        return false;
+      }
+      screenfull.toggle();
+    }
+  }
 };
 </script>
 
 <style lang="stylus" scoped>
-.el-fullscreen
-    color: #515151
-    cursor: pointer
-    &__icon
-        font-size: 28px
+  .svg-icon
+    vertical-align middle
+    cursor pointer
+    color #515151
+    transition color .28s
     &:hover
-        color: #41b883
+      color #41b883
 </style>

@@ -18,12 +18,6 @@ export const constantRouterMap = [
     ]
   },
   {
-    path: '/about',
-    name: 'about',
-    // component: () => import(/* webpackChunkName: "about" */ '@/views/About')
-    component: _import("About")
-  },
-  {
     path: '/403',
     component: _import('errorPage/403'),
     hidden: true

@@ -1,7 +1,6 @@
 import axios from 'axios'
 import store from '@/store'
-// import { getToken } from "@/utils/auth";
-import { getSession } from '@/utils/session'
+import * as loginAuth from './session';
 import * as tools from './tools'
 
 const http = axios.create({
@@ -12,9 +11,41 @@ const http = axios.create({
 // request 拦截器
 http.interceptors.request.use(
   config => {
-    if (store.getters.userInfo.token) {
-      config.headers['eden-token'] = getSession()
-    }
+    // if (store.getters.userInfo.token) {
+    //   config.headers['eden-token'] = getSession()
+    // }
+
+
+    // let sessionId = loginAuth.getSessionId();
+    // if (sessionId) {
+    //   let session = loginAuth.getSession();
+    //   if (session) {
+    //     let userInfo = JSON.parse(session);
+    //     // 为请求附加sessionId和loginUser
+    //     if (config.method.toLowerCase() === 'get') {
+    //       if (config.url.indexOf('?') < 0) {
+    //         config.url += '?';
+    //       } else {
+    //         config.url += '&';
+    //       }
+    //       config.url += 'sessionId=' + sessionId + '&loginUserId=' + userInfo.userId + '&loginUserName=' + userInfo.userName;
+    //     } else if (config.method.toLowerCase() === 'post') {
+    //       let data = config.data;
+    //       if (data != null) {
+    //         data.sessionId = sessionId;
+    //         data.loginUserId = userInfo.userId;
+    //         data.loginUserName = userInfo.userName;
+    //       } else {
+    //         data = {
+    //           sessionId: sessionId,
+    //           loginUserId: userInfo.userId,
+    //           loginUserName: userInfo.userName
+    //         };
+    //       }
+    //       config.data = data;
+    //     }
+    //   }
+    // }
     return config
   },
   error => {

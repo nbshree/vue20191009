@@ -10,6 +10,7 @@ import '@/router/routerControl';
 import store from './store'
 import '@/assets/theme/element-#41B883/index.css'
 import '@/assets/styl/index'
+import "@/mock";
 // import { mockXHR } from '../mock'
 
 import * as filters from './filters' // global filters

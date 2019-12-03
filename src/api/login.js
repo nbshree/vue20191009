@@ -26,3 +26,11 @@ export function getUserInfo(username) {
     params: { username }
   });
 }
+
+export function permission() {
+  return http({
+    url: "/user/permission",
+    method: "get",
+    params: {}
+  });
+}
