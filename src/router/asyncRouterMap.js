@@ -9,7 +9,7 @@ export const asyncRouterMap = [
     name: 'manage',
     meta: {
       title: '综合管理',
-      icon: 'icon-apartment'
+      icon: 'comp'
     },
     redirect: 'app/list',
     children: [
@@ -19,7 +19,7 @@ export const asyncRouterMap = [
         name: 'appList',
         meta: {
           title: 'App管理',
-          icon: 'icon-appstore',
+          icon: 'comp',
           permission: 'supportManage:appList:index'
         }
       },
@@ -29,42 +29,42 @@ export const asyncRouterMap = [
         name: 'userList',
         meta: {
           title: '用户管理',
-          icon: 'icon-user',
+          icon: 'user',
           permission: 'supportManage:userList:index'
         }
       }
     ]
   },
   // 更新中心
-  {
-    path: '/update',
-    component: Layout,
-    name: 'update',
-    meta: {
-      title: '更新中心',
-      icon: 'icon-cloud-upload'
-    },
-    children: [
-      {
-        path: 'project/list',
-        component: _import('updateCenter/projectList/index'),
-        name: 'projectList',
-        meta: {
-          title: '项目列表',
-          icon: 'icon-project',
-          permission: 'updateCenter:projectList:index'
-        }
-      },
-      {
-        path: 'eseal/firmware',
-        component: _import('updateCenter/esealFirmware/index'),
-        name: 'esealFirmware',
-        meta: {
-          title: '智能锁固件',
-          icon: 'icon-lock',
-          permission: 'updateCenter:esealFirmware:index'
-        }
-      }
-    ]
-  }
+  // {
+  //   path: '/update',
+  //   component: Layout,
+  //   name: 'update',
+  //   meta: {
+  //     title: '更新中心',
+  //     icon: 'comp'
+  //   },
+  //   children: [
+  //     {
+  //       path: 'project/list',
+  //       component: _import('updateCenter/projectList/index'),
+  //       name: 'projectList',
+  //       meta: {
+  //         title: '项目列表',
+  //         icon: 'comp',
+  //         permission: 'updateCenter:projectList:index'
+  //       }
+  //     },
+  //     {
+  //       path: 'eseal/firmware',
+  //       component: _import('updateCenter/esealFirmware/index'),
+  //       name: 'esealFirmware',
+  //       meta: {
+  //         title: '智能锁固件',
+  //         icon: 'comp',
+  //         permission: 'updateCenter:esealFirmware:index'
+  //       }
+  //     }
+  //   ]
+  // }
 ];

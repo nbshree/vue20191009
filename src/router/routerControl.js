@@ -1,9 +1,7 @@
-// import { router } from '@/router'
 import router from '@/router'
 import store from '@/store'
 import nprogress from 'nprogress'
-// import 'nprogress/nprogress.css'
-// import { getToken } from '@/utils/auth'
+import 'nprogress/nprogress.css'
 import { getSession } from '@/utils/session'
 import * as tools from '@/utils/tools'
 

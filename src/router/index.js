@@ -54,7 +54,7 @@ export const constantRouterMap = [
         component: _import("dashboard/index"),
         meta: {
           title: '控制面板',
-          icon: 'icon-dashboard',
+          icon: 'dashboard',
           permission: 'dashboard'
         }
       }
