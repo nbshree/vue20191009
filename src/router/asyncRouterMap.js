@@ -34,7 +34,7 @@ export const asyncRouterMap = [
         }
       }
     ]
-  },
+  },//
   // 更新中心
   // {
   //   path: '/update',
